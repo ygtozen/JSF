@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>JSF Form Bileşenleri ve Managed Bean</title>
+</h:head>
+
+<h:body>
+	<!-- form etiketi -->
+	<h:form>
+		<h:panelGrid columns="2"> <!-- 2 sütunlu bir tablo olarak düşünebiliriz-->		
+			<h:outputText value="İsim-Soyisim Giriniz" /> <!-- Ekrana çıktı verir -->
+			<h:inputText value="#{managedBeanSinifi.isimSoyisim}" />
+
+			<h:outputText value="Cinsiyetiniz Nedir?" />
+			<h:selectManyCheckbox value="#{managedBeanSinifi.cinsiyet}">
+				<!-- Checkbox -->
+				<f:selectItem itemLabel="Bayan" itemValue="Bayan" />
+				<f:selectItem itemLabel="Erkek" itemValue="Erkek" />
+			</h:selectManyCheckbox>
+
+			<h:outputText value="Ehiletiniz var mı?" />
+			<h:selectOneRadio value="#{managedBeanSinifi.ehliyetVarMi}">
+				<!-- Radiobutton -->
+				<f:selectItem itemLabel="Evet" itemValue="Evet" />
+				<f:selectItem itemLabel="Hayır" itemValue="Hayir" />
+			</h:selectOneRadio>
+
+			<h:outputText value="Adres Giriniz: " />
+			<h:inputTextarea value="#{managedBeanSinifi.adres}" /> <!-- Textarea -->
+			<!-- Textarea -->
+
+			<h:outputText value="İl Seçiniz: " />
+			<h:selectOneMenu value="#{managedBeanSinifi.il}">
+				<!-- ComboBox, açılır liste-->
+				<f:selectItem itemLabel="İstanbul" itemValue="Istanbul" />
+				<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
+			</h:selectOneMenu>
+
+			<!--  <h:outputText value="JSF Resmi" />
+			<h:graphicImage library="images" name="jsf.png" /> -->
+
+			<h:outputText value="Parola Giriniz: " />
+			<h:inputSecret value="#{managedBeanSinifi.parola}" />
+
+			<h:outputText value="Button ile Verilerin Gönderimi" />
+			<h:commandButton value="GÖNDER" />
+
+			<h:outputText value="Link ile verilerin Gönderimi" />
+			<h:commandLink value="GÖNDER" />
+
+			<h:outputText value="OutputLink Kullanımı" />
+			<h:outputLink value="http://www.google.com">GOOGLE</h:outputLink>
+
+			<h:outputText
+				value="Verdiğiniz bilgilerin doğruluğunu kabul ediyor musunuz?" />
+			<h:selectBooleanCheckbox value="#{managedBeanSinifi.kabulEdildiMi}" /> 
+			
+
+		</h:panelGrid>
+
+		<h:panelGrid columns="1">
+			<h3>Girdiğimiz Bilgiler</h3>
+			<h:outputText value="#{managedBeanSinifi.mesaj}" style="color: red" />
+			<h:outputText value="#{managedBeanSinifi.isimSoyisim}" />
+			<h:outputText value="#{managedBeanSinifi.cinsiyet}" />
+			<h:outputText value="#{managedBeanSinifi.ehliyetVarMi}" />
+			<h:outputText value="#{managedBeanSinifi.il}" />
+			<h:outputText value="#{managedBeanSinifi.adres}" />
+			<h:outputText value="#{managedBeanSinifi.parola}" />
+		</h:panelGrid>
+		
+	</h:form>
+
+</h:body>
+
+</html>
